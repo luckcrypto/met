@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Africa Population Clock · metro.ad</title>
+<meta name="description" content="Africa's population, counting up live. A free mini widget from Met Road.">
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#b3760b;--accent2:#8f5e09;--muted:#5c6267;--bg:#f7f7f8;--surface:#fdfdfd;
+--border:rgba(101,70,31,.14);--text:#13171a;--op-bg:#e9ebec;--africa:#d0d6db;--africa-line:#b88d4c;--faint:#898f95}
+*{cursor:default;box-sizing:border-box;margin:0;padding:0}
+a,button{cursor:pointer}
+html,body{width:100%;height:100%;overflow:hidden}
+body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;display:flex}
+.mw{position:relative;flex:1 1 auto;display:flex;flex-direction:column;background:var(--surface);
+border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
+.mw-body{flex:1 1 auto;display:flex;flex-direction:column;justify-content:center;padding:12px 14px 6px;min-height:0;text-align:center}
+.mw-eyebrow{font-size:9.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin-bottom:5px}
+.mw-brand{flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:6px;
+padding:7px 10px;background:var(--op-bg);border-top:1px solid var(--border);text-decoration:none;
+font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.01em;transition:background .15s}
+.mw-brand:hover{background:#dde0e3}
+.mw-brand .bdot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:0 0 auto}
+.mw-brand .arw{color:var(--faint);font-weight:700}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.pop{font-size:25px;font-weight:800;letter-spacing:-.035em;line-height:1.05;color:var(--text);font-variant-numeric:tabular-nums;margin:2px 0 6px;white-space:nowrap;overflow:hidden}
+.pop .d{display:inline-block}
+.pop .d.tick{animation:roll .2s ease-out}
+@keyframes roll{0%{transform:translateY(-14%);opacity:.6}100%{transform:translateY(0);opacity:1}}
+.lbl{font-size:12px;font-weight:600;color:var(--muted);line-height:1.35}
+.since{margin-top:9px;display:inline-flex;align-items:baseline;gap:6px;background:var(--op-bg);
+border:1px solid var(--border);border-radius:999px;padding:5px 12px}
+.since b{font-size:15px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+.since span{font-size:10.5px;font-weight:600;color:var(--muted)}
+.rate{margin-top:7px;font-size:10px;color:var(--faint);font-weight:500}
+</style><link rel="canonical" href="https://metro.ad/widgets/continent-clock.html">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#f6f6f7">
+</head>
+<body>
+<div class="mw">
+  <div class="mw-body">
+    <div class="mw-eyebrow">🌍 Africa right now</div>
+    <div class="pop" id="pop">1,580,000,000</div>
+    <div class="lbl">people live in Africa</div>
+    <div class="since"><b id="since">+0</b><span>since you opened this</span></div>
+    <div class="rate">Modelled at 2.3% annual growth</div>
+  </div>
+  <a class="mw-brand" href="https://metro.ad" target="_blank" rel="noopener">
+    <span class="bdot"></span>metro.ad<span class="arw">→</span>
+  </a>
+</div>
+<script>(function(){
+ var BASE=1580000000, T0=Date.UTC(2026,0,1), RATE=0.023;
+ var start=Date.now(), startVal=null;
+ function popAt(t){ var yrs=(t-T0)/31557600000; return BASE*Math.pow(1+RATE,yrs); }
+ var el=document.getElementById('pop'), sc=document.getElementById('since'), prev='';
+ function render(){
+   var now=Date.now(), v=Math.floor(popAt(now));
+   if(startVal===null) startVal=v;
+   var s=v.toLocaleString('en-US');
+   if(s!==prev){
+     var out='';
+     for(var i=0;i<s.length;i++){
+       var ch=s[i], changed = prev && prev[i]!==ch;
+       out+= (ch===',') ? '<span class="d">,</span>' : '<span class="d'+(changed?' tick':'')+'">'+ch+'</span>';
+     }
+     el.innerHTML=out; prev=s;
+   }
+   sc.textContent='+'+(v-startVal).toLocaleString('en-US');
+   requestAnimationFrame(render);
+ }
+ render();
+})();</script>
+</body></html>
