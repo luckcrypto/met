@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#f7f7f8">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="favicon.ico" sizes="48x48 32x32 16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<title>Page not found — 404 · Met Road</title><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="This stop doesn’t exist — the line was rerouted or never built. Every metro, rail and rapid-transit line in Africa is one tap away on the live map.">
+<style>html{background:#f7f7f8;color-scheme:only light}body{margin:0;background:#f7f7f8;color:#13171a;font-family:'Outfit',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}main{max-width:440px}.brand{font-weight:700;font-size:17px}.brand span{color:#5c6267;font-weight:500}h1{font-size:84px;line-height:1;letter-spacing:-.03em;margin:18px 0 6px;color:#b3760b}p{color:#5c6267;line-height:1.6;margin:0 0 22px}a.btn{display:inline-block;background:#b3760b;color:#fff;font-weight:700;font-size:15px;padding:11px 22px;border-radius:11px;text-decoration:none}a.alt{display:inline-block;margin-left:10px;color:#b3760b;font-weight:700;font-size:15px;text-decoration:none;padding:11px 6px}/*prose-justify*/p.lede,.gabout-intro,.qa .a,.doc p:not(.doc-kicker):not(.verified),p.lead,p.blurb,.gcard p,.fi p,p.fnote,p.cap,p.road-intro,p.risk,.callout p,.card.feature p{text-align:justify;text-align-last:center}
+*{cursor:default}
+a,button,summary,[role="button"],label{cursor:pointer}
+input,textarea,code,pre{cursor:text}
+[disabled],[aria-disabled="true"]{cursor:not-allowed}
+
+/* nav touch targets — WCAG 2.5.5 / Apple HIG 44px minimum (mobile) */
+@media(max-width:960px){
+  .navbar{height:60px}
+  .langpill-btn{height:44px;padding:0 12px;border-radius:12px}
+  .nav-search{width:44px;height:44px;border-radius:12px}
+  .megabtn{width:44px;height:44px;border-radius:12px}
+  .megabtn .mburger{width:21px;height:21px}
+  .nav-search svg{width:19px;height:19px}
+}
+/* tight phones: shrink the wordmark, never a control */
+@media(max-width:960px){
+  /* kill the legacy right margins that fight the flex gap (uneven 8/16px spacing) */
+  .navr>*{margin-right:0}
+  .navr{gap:10px}
+}
+@media(max-width:960px){
+  /* The rotating strings are absolutely positioned, so the box would collapse.
+     A hidden in-flow sizer carrying the LONGEST string makes the box measure
+     itself — no magic pixel value, so it survives font-loading swaps, any
+     locale and any font-size. */
+  .brand-cycle::after{content:"Africa\2019s Metro";visibility:hidden;white-space:nowrap;display:inline-block;font-weight:inherit}
+}
+@media(max-width:400px){
+  .navr{gap:8px}
+  .brand-cycle{min-width:0;font-size:15px}
+  .brand-ico{margin-right:5px}
+  .langpill-btn{padding:0 9px;gap:4px}
+}
+@media(max-width:350px){
+  /* genuinely tight: drop the long string rather than clip it, and resize the sizer to match */
+  .brand-cycle{font-size:13px}
+  .brand-cycle .bc3{display:none}
+  .brand-cycle::after{content:"Met Road"}
+}
+</style>
+<style>/*ships-v1*/
+:root{--headH:60px}
+.scroll-progress{top:var(--headH);transition:top .28s ease,width .1s linear}
+.hero-title{letter-spacing:-.018em}
+.dn,.nav-search .ns-label,.nav-search .ns-kbd,.hero-search .hs-kbd{display:none}
+.ns-kbd,.hs-kbd{align-items:center;justify-content:center;min-width:22px;height:22px;padding:0 6px;font-family:inherit;font-size:15px;font-weight:600;color:var(--muted);background:var(--surface-2);border:1px solid var(--border);border-radius:6px;line-height:1}
+@media (hover:hover){
+  .pcard,.citycard,a.card{transition:transform .18s ease,box-shadow .18s ease}
+  .pcard:hover,.citycard:hover,a.card:hover{transform:translateY(-2px);box-shadow:0 12px 30px -14px rgba(21,23,24,.30),var(--inset)}
+}
+@media (min-width:961px){
+  .navbar{position:relative;justify-content:flex-start;height:var(--headH)}
+  .site-head .navbar{transition:height .28s ease}
+  .navr{margin-inline-start:auto}
+  .dn{display:flex;align-items:center;gap:2px;margin-inline-start:26px}
+  .dn-top{display:inline-flex;align-items:center;gap:7px;font-family:inherit;font-size:15px;font-weight:600;color:var(--text);background:transparent;border:1px solid transparent;border-radius:11px;padding:9px 13px;cursor:pointer;transition:background .15s,color .15s}
+  .dn-top:hover{background:var(--surface-2);color:var(--accent)}
+  .dn-chev{width:10px;height:6px;transition:transform .2s ease}
+  .dn-group.open .dn-top{background:var(--surface-2);color:var(--accent)}
+  .dn-group.open .dn-chev{transform:rotate(180deg)}
+  .dn-group{position:relative}
+  .dn-group.dn-big{position:static}
+  .dn-panel{position:absolute;top:100%;inset-inline-start:0;z-index:60;margin-top:10px;background:var(--surface);border:1px solid var(--border);border-radius:18px;box-shadow:0 12px 30px -14px rgba(21,23,24,.30),var(--inset);padding:20px 22px;opacity:0;visibility:hidden;transform:translateY(-8px);pointer-events:none;transition:opacity .22s ease,transform .22s ease,visibility .22s}
+  .dn-group.dn-big .dn-panel{inset-inline:0}
+  .dn-group:not(.dn-big) .dn-panel{min-width:250px}
+  .dn-group:not(.dn-big) .dn-panel h4{display:none}
+  .dn-group.open .dn-panel{opacity:1;visibility:visible;transform:none;pointer-events:auto}
+  .dn-grid{display:grid;gap:22px}
+  .dn-group.dn-big .dn-grid{grid-template-columns:repeat(5,1fr)}
+  .dn-panel .mega-col{display:flex;flex-direction:column;gap:2px;min-width:0}
+  .dn-group.open .dn-panel .mega-col{opacity:0;transform:translateY(6px);animation:dnIn .32s ease forwards}
+  .dn-group.open .dn-panel .mega-col:nth-child(2){animation-delay:.04s}
+  .dn-group.open .dn-panel .mega-col:nth-child(3){animation-delay:.08s}
+  .dn-group.open .dn-panel .mega-col:nth-child(4){animation-delay:.12s}
+  .dn-group.open .dn-panel .mega-col:nth-child(5){animation-delay:.16s}
+  .nav-search{width:auto;padding-block:0;padding-inline:14px 9px;gap:9px;border-radius:999px;animation:nsPulse 11s ease-in-out infinite}
+  .nav-search .ns-label{display:inline;font-size:15px;font-weight:500;line-height:1;white-space:nowrap}
+  .nav-search .ns-kbd{display:inline-flex}
+  .hero-search .hs-kbd{display:inline-flex;position:absolute;inset-inline-end:66px;top:50%;transform:translateY(-50%)}
+  .hero-search-input{animation:nsPulse 11s ease-in-out -5s infinite}
+}
+@keyframes dnIn{to{opacity:1;transform:none}}
+@keyframes nsPulse{0%,88%{box-shadow:0 0 0 0 rgba(179,118,11,0)}91%{box-shadow:0 0 0 1px rgba(179,118,11,.35)}100%{box-shadow:0 0 0 11px rgba(179,118,11,0)}}
+@media (prefers-reduced-motion:reduce){
+  .site-head .navbar{transition:none}
+  .scroll-progress{transition:width .1s linear}
+  .nav-search,.hero-search-input{animation:none}
+  .dn-panel{transition:none}
+  .dn-group.open .dn-panel .mega-col{animation:none;opacity:1;transform:none}
+  .pcard:hover,.citycard:hover,a.card:hover{transform:none}
+}
+</style>
+<style>/*earth-v1*/
+footer{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg stroke='%235a4426' stroke-width='1' opacity='.045' fill='none'%3E%3Cpath d='M0 18h26M46 18h26M36 0v26M36 46v26'/%3E%3Cpath d='M12 54l8-8M52 26l8-8M12 26l8 8M52 54l8 8'/%3E%3Ccircle cx='36' cy='36' r='3'/%3E%3C/g%3E%3C/svg%3E"),linear-gradient(180deg,var(--bg),#eceef0)}
+</style>
+<style>/*silver-v1*/
+:root{--silver:#eaecee;--silver-2:#dfe1e5;--silver-line:rgba(74,54,28,.15)}
+.chip{background:var(--silver);border-color:var(--silver-line)}
+.nav-search,.megabtn,.langpill-btn{background:var(--silver)}
+@media(min-width:961px){
+  .dn-top:hover,.dn-group.open .dn-top{background:var(--silver)}
+}
+@media(hover:hover) and (min-width:900px){
+  .db tbody tr:hover{background:var(--silver)}
+}
+</style>
+<style>/*pill-v1*/
+.pill{border:1px solid rgba(101,70,31,.14);text-transform:none;letter-spacing:.01em;line-height:1.2}
+.pill.operational::before{animation:opLive 2.6s ease-in-out infinite}
+@keyframes opLive{0%,100%{box-shadow:0 0 0 0 rgba(125,84,23,.35)}50%{box-shadow:0 0 0 4px rgba(125,84,23,0)}}
+.pill.operational.anim-off::before{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.pill.operational::before{animation:none}}
+</style>
+<style>/*cardhead-v1*/
+.pcard-top{flex-direction:column;align-items:flex-start;gap:var(--s2)}
+</style>
+<style>/*wordsafe-v1*/
+.rec,.pcard,.citycard,.gcard,.pcard-top,.stat,.pspec{min-width:0}
+.rec .big,.rec .lbl,.pcard h3,.pcard .blurb,.pcard .builder,.citycard .cnm,.gcard p,.stat .u,.pspec .k,.pspec .v{overflow-wrap:anywhere}
+.getabout{grid-template-columns:repeat(2,minmax(0,1fr))} @media(max-width:820px){.getabout{grid-template-columns:1fr}}
+.pspecs{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:899px){
+  .records{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pspecs{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:820px){
+  .statsband{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+</style>
+<style>/*polish-v1*/
+.mega-col .mega-h4{font-size:var(--t-11);text-transform:uppercase;letter-spacing:.09em;color:var(--accent);font-weight:700;margin:0 0 var(--s3)}
+.dn-panel .mega-h4{margin-bottom:var(--s3)}
+/* 1 — search modal: real pill around the input row */
+.msearch-head{gap:12px!important}
+.msearch-head>.msearch-ico{position:absolute;margin-inline-start:16px;pointer-events:none;z-index:2}
+.msearch-input{border:1px solid var(--border)!important;background:var(--surface)!important;border-radius:999px!important;padding:12px 18px 12px 46px!important;width:100%}
+html[dir="rtl"] .msearch-input{padding:12px 46px 12px 18px!important}
+.msearch-input:focus{border-color:var(--accent)!important;box-shadow:0 0 0 3px rgba(179,118,11,.15)!important}
+/* 2 — contrast: lift faint + accent to AA on both surfaces */
+:root{--faint:#61686e;--accent:#8f5e09}
+/* 3 — focus-visible safety net sitewide (incl. 404) */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+</style>
+<style>/*ux2-v1*/
+/* 1 — radius consistency: madband joins the 18px card law (kills the 20px + fares 0px outliers) */
+.madband{border-radius:var(--radius-card)!important}
+/* 2 — city-panel cards get the same hover life as every other card */
+@media (hover:hover){
+  .scard{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+  .scard:hover{transform:translateY(-2px);box-shadow:0 12px 30px -14px rgba(21,23,24,.30),var(--inset);border-color:var(--border-strong)}
+}
+/* 3 — inline text-link tap targets: give citylink real vertical padding (was 23px tall) */
+.citylink{padding:6px 0;min-height:24px}
+/* 4 — search results rows: press feedback for touch */
+@media (hover:hover){
+  .msearch-link{transition:background .13s ease}
+}
+.msearch-link:active{background:var(--surface-2)}
+@media (prefers-reduced-motion:reduce){
+  .scard{transition:none}
+  .scard:hover{transform:none}
+}
+</style>
+<style>/*justfix-v1*/
+/* Justification needs a wide measure to avoid rivers. On phones (<760px) every
+   column — even full-width prose — is too narrow, so go ragged-right there and
+   keep the justified signature for tablet/desktop where it reads beautifully. */
+@media (max-width:760px){
+  p.lede,.gabout-intro,.gabout-intro *,.qa .a,.doc p:not(.doc-kicker):not(.verified),
+  p.lead,p.blurb,.gcard p,.fi p,p.fnote,p.cap,p.road-intro,p.risk,.callout p,
+  .card.feature p{
+    text-align:start!important;text-align-last:auto!important;
+  }
+}
+</style>
+<style>/*cardcenter-v1*/
+/* pipeline card header — flag+title+city+status pill centered as a unit,
+   consistent across all languages. Body (blurb/specs) stays left for reading. */
+.pcard-top{align-items:center;text-align:center}
+.pcard-top>div{width:100%}
+.pcard h3{text-align:center}
+.pcard .city{text-align:center}
+html[dir="rtl"] .pcard-top{align-items:center}
+</style>
+<style>/*prose-justify-left-v1*/
+.blurb,.gabout-intro,.gcard p,p.risk,p.blurb,p.lede,.pcard .blurb,.qa .a,p.road-intro{
+  text-align:justify;text-align-last:left;-webkit-hyphens:auto;hyphens:auto
+}
+@media (max-width:760px){
+  .blurb,.gabout-intro,.gcard p,p.risk,p.blurb,p.lede,.pcard .blurb,.qa .a,p.road-intro{
+    text-align:justify!important;text-align-last:left!important
+  }
+}
+</style>
+<style>/* ===== cross-page view transitions (progressive enhancement) ===== */
+@view-transition{navigation:auto}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.26s;animation-timing-function:cubic-bezier(.2,.8,.2,1)}
+::view-transition-old(root){animation-name:mrPageOut}
+::view-transition-new(root){animation-name:mrPageIn}
+@keyframes mrPageOut{to{opacity:0}}
+@keyframes mrPageIn{from{opacity:0;transform:translateY(10px)}}
+/* the masthead is identical on every page — hold it still so only the content changes */
+.site-head{view-transition-name:mr-head}
+@media(prefers-reduced-motion:reduce){
+  ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}
+}
+</style>
+<style>/* ===== mobile pill rows: one line, evenly justified ===== */
+@media(max-width:760px){
+  /* Filter chips and tab strips stay on ONE line and swipe sideways. This is the only
+     pattern that survives all 7 locales: the three EN labels alone measure 332px inside
+     a 350px container, and ru "Запланировано" is 168px on its own — no padding or
+     wrapping trick fits them at the locked 15px type size. */
+  #filters,#mapfilters,.tl-tabs,.tabs{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-inline:contain;
+    /* a nowrap scroll strip defaults to min-width:auto and would push its parent wide */
+    min-width:0;
+    /* break out of the content box so the strip runs screen edge to screen edge —
+       nothing is ever clipped mid-pill; the inline padding keeps the first and last
+       pill flush with the surrounding text when the strip is at either end.
+       box-sizing is explicit: these rows are content-box, so the inline padding
+       would otherwise be ADDED to the width and overshoot the viewport. */
+    box-sizing:border-box;width:100vw;
+    margin-inline:calc(50% - 50vw);
+    padding-inline:calc(50vw - 50%);
+    padding-block:2px}
+  #filters::-webkit-scrollbar,#mapfilters::-webkit-scrollbar,
+  .tl-tabs::-webkit-scrollbar,.tabs::-webkit-scrollbar{display:none}
+  #filters>*,#mapfilters>*,.tl-tabs>*,.tabs>*{flex:0 0 auto}
+  #filters>*,#mapfilters>*{padding-block:12px}   /* lifts chips to a 44px+ touch target */
+  /* language pills: four to a row, equal width, centred */
+  .foot-langs{flex-wrap:wrap;justify-content:center}
+  .foot-langs a{flex:0 0 calc(25% - 6px);justify-content:center}
+  /* trust and city rows read as deliberate centred blocks, not ragged text */
+  .foot-trust{justify-content:center;gap:16px}
+  .wshare{justify-content:center}
+  .wshare .lbl{flex:0 0 100%;text-align:center}
+}
+</style>
+<style>/* ===== alloy layer — silver · nickel · champagne =====
+   Flat greys read as plastic. Real metal is a curved reflective surface, so every
+   alloy here is a multi-stop gradient with a specular band: dark edge, bright
+   highlight, mid tone, dark edge. Champagne is the bridge alloy — it shares the
+   bronze hue family but sits at silver's lightness, so the warm accent and the
+   cool canvas resolve into one metal palette instead of two competing ones. */
+:root{
+  --alloy-silver:linear-gradient(148deg,#b9c3ca 0%,#f6f8fa 34%,#dbe3e8 52%,#a8b3ba 100%);
+  --alloy-nickel:linear-gradient(148deg,#8b959d 0%,#c8d1d8 38%,#99a4ac 58%,#717b83 100%);
+  --alloy-champagne:linear-gradient(148deg,#bfa068 0%,#f3e7cd 34%,#e0cea3 54%,#a98d54 100%);
+  --alloy-hair:linear-gradient(90deg,transparent 0%,#c7d0d6 18%,#eef2f5 50%,#c7d0d6 82%,transparent 100%);
+  --alloy-champ-hair:linear-gradient(90deg,transparent 0%,#d9c49a 20%,#f4e9d3 50%,#d9c49a 80%,transparent 100%);
+}
+/* masthead sits on a machined silver edge rather than a flat rule */
+/* NEVER set position here — .site-head is position:sticky and this block is injected
+   last, so declaring position:relative silently killed the sticky nav. sticky is
+   already a positioned element, so the ::after hairline anchors to it correctly. */
+.site-head{border-bottom:0}
+.site-head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:var(--alloy-hair);pointer-events:none}
+/* table headers: brushed nickel, light source top-left */
+.db thead th{background-image:linear-gradient(158deg,#eef2f5 0%,#e2e8ec 46%,#d8e0e5 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.85),inset 0 -1px 0 rgba(120,135,145,.16)}
+/* No decorative underline beneath headings anywhere. A heading is already a
+   heading — typographic weight and spacing do that job. Bars under titles read
+   as dated ornament, so the alloy palette stays on real structure only. */
+/* DECISION: no metallic TEXT anywhere. background-clip:text has no solid colour,
+   so champagne numerals faded out over the hero globe — and data must stay legible
+   in 7 languages on 198 pages. Metal goes on STRUCTURE (rules, edges, headers);
+   type stays ink and bronze. Real product design plates the chrome, not the copy. */
+/* cards catch a light along their top edge, like a rolled metal lip */
+.scard,.citycard{position:relative}
+.scard::before,.citycard::before{
+  content:"";position:absolute;left:14px;right:14px;top:0;height:1px;border-radius:1px;
+  background:var(--alloy-hair);opacity:.85;pointer-events:none}
+@media(prefers-reduced-motion:no-preference){
+  .db thead th{transition:background-image .3s ease}
+}
+</style>
+<style>/* ===== contrast repair — WCAG AA on the cool canvas =====
+   The palette change surfaced pre-existing debt: bronze is a mid-tone, so it fails
+   AA both as white-on-bronze and as bronze-on-light. Fills keep the brand bronze;
+   TEXT roles step down to the deep bronze, which is the same hue at a legible
+   luminance. Nothing here changes what the site looks like — only what it passes. */
+.skip{background:#7a4f08!important;color:#fff!important}
+.sec-head .maplink a,.maplink a,.sys-link,a.more,.fcol a.accent{color:#7a4f08}
+.pill.construction{color:#8a3f07}
+</style>
+<style>/* ===== auto-hiding masthead =====
+   Past ~10% of the page, scrolling down slides the nav away and promotes the scroll
+   indicator to the very top of the viewport; scrolling up brings both back. The
+   mega panel lives INSIDE .site-head, so the nav must never hide while it is open. */
+.site-head{transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+body.nav-up .site-head{transform:translateY(-100%)}
+.scroll-progress{transition:top .3s cubic-bezier(.2,.8,.2,1),width .1s linear}
+body.nav-up .scroll-progress{top:0}
+@media(prefers-reduced-motion:reduce){
+  .site-head,.scroll-progress{transition:width .1s linear}
+}
+</style>
+<meta property="og:locale" content="en_US">
+</head>
+<body><main>
+<div class="brand">🚇 Met Road<span> · metro.ad</span></div>
+<h1>404</h1>
+<p>This stop doesn't exist — the line was rerouted or never built. Every real line on the continent is one tap away.</p>
+<a class="btn" href="/">Back to the map</a><a class="alt" href="/fares.html">Fare calculator →</a>
+</main><script>/*ships-v1*/(function(){
+"use strict";
+var head=document.querySelector(".site-head");if(!head)return;
+var navbar=head.querySelector(".navbar"),navr=navbar&&navbar.querySelector(".navr");
+var mega=document.getElementById("megaPanel");
+/* ---- desktop nav built from the localized mega panel ---- */
+if(navbar&&navr&&mega){
+  var cols=[].slice.call(mega.querySelectorAll(".mega-col"));
+  if(cols.length>=2){
+    var lang=(document.documentElement.lang||"en").toLowerCase().split("-")[0];
+    var CITIES={en:"Cities",fr:"Villes",ar:"\u0627\u0644\u0645\u062F\u0646",sw:"Miji",zh:"\u57CE\u5E02",ru:"\u0413\u043E\u0440\u043E\u0434\u0430",hi:"\u0936\u0939\u0930"}[lang]||"Cities";
+    var exploreCol=cols[cols.length-1],regionCols=cols.slice(0,-1);
+    var exploreLabel=(exploreCol.querySelector(".mega-h4")||exploreCol.querySelector("h4")||{textContent:"Explore"}).textContent;
+    function mkGroup(label,colNodes,big){
+      var g=document.createElement("div");g.className="dn-group"+(big?" dn-big":"");
+      var b=document.createElement("button");b.type="button";b.className="dn-top";
+      b.setAttribute("aria-haspopup","true");b.setAttribute("aria-expanded","false");
+      var s=document.createElement("span");s.textContent=label;b.appendChild(s);
+      b.insertAdjacentHTML("beforeend",'<svg class="dn-chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+      var p=document.createElement("div");p.className="dn-panel";
+      var grid=document.createElement("div");grid.className="dn-grid";
+      colNodes.forEach(function(c){grid.appendChild(c.cloneNode(true));});
+      p.appendChild(grid);g.appendChild(b);g.appendChild(p);return g;
+    }
+    var dn=document.createElement("nav");dn.className="dn";dn.setAttribute("aria-label",CITIES+" / "+exploreLabel);
+    var g1=mkGroup(CITIES,regionCols,true),g2=mkGroup(exploreLabel,[exploreCol],false);
+    dn.appendChild(g1);dn.appendChild(g2);
+    /* desktop nav intentionally has no Cities/About dropdowns — the menu button opens the full panel */
+    var openG=null,closeTimer=null;
+    function setOpen(g,on){
+      if(!g)return;
+      if(on&&openG&&openG!==g){setOpen(openG,false);}
+      g.classList.toggle("open",on);
+      g.querySelector(".dn-top").setAttribute("aria-expanded",on?"true":"false");
+      openG=on?g:(openG===g?null:openG);
+    }
+    [g1,g2].forEach(function(g){
+      var b=g.querySelector(".dn-top");
+      b.addEventListener("click",function(e){e.stopPropagation();setOpen(g,!g.classList.contains("open"));});
+      g.addEventListener("mouseenter",function(){clearTimeout(closeTimer);setOpen(g,true);});
+      g.addEventListener("mouseleave",function(){clearTimeout(closeTimer);closeTimer=setTimeout(function(){setOpen(g,false);},150);});
+      g.querySelector(".dn-panel").addEventListener("click",function(e){if(e.target.closest("a"))setOpen(g,false);});
+    });
+    document.addEventListener("click",function(e){if(openG&&!openG.contains(e.target))setOpen(openG,false);});
+    document.addEventListener("keydown",function(e){if(e.key==="Escape"&&openG){var b=openG.querySelector(".dn-top");setOpen(openG,false);b.focus();}});
+  }
+}
+/* ---- search pill: localized label + / hint ---- */
+var ns=document.querySelector(".nav-search");
+if(ns&&!ns.querySelector(".ns-label")){
+  var lbl=ns.getAttribute("aria-label")||"Search";
+  var sp=document.createElement("span");sp.className="ns-label";sp.textContent=lbl;sp.setAttribute("aria-hidden","true");
+  var kb=document.createElement("kbd");kb.className="ns-kbd";kb.textContent="/";kb.setAttribute("aria-hidden","true");
+  ns.appendChild(sp);ns.appendChild(kb);
+}
+/* ---- hero pill: / hint ---- */
+var hs=document.querySelector(".hero-search");
+if(hs&&!hs.querySelector(".hs-kbd")){
+  var kb2=document.createElement("kbd");kb2.className="hs-kbd";kb2.textContent="/";kb2.setAttribute("aria-hidden","true");
+  hs.appendChild(kb2);
+}
+/* ---- nav shrink coupled to scroll-progress via --headH ---- */
+var mqD=window.matchMedia("(min-width:961px)");
+function setH(){
+  var s=(window.scrollY||0)>12;
+  document.documentElement.style.setProperty("--headH",(mqD.matches&&s)?"52px":"60px");
+}
+window.addEventListener("scroll",setH,{passive:true});
+window.addEventListener("resize",setH);
+if(mqD.addEventListener){mqD.addEventListener("change",setH);}
+setH();
+})();</script>
+<script>/*pillIO*/(function(){
+  if(!('IntersectionObserver' in window))return;
+  var els=document.querySelectorAll('.pill.operational'); if(!els.length)return;
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ e.target.classList.toggle('anim-off', !e.isIntersecting); });
+  },{rootMargin:'150px'});
+  [].forEach.call(els,function(el){ el.classList.add('anim-off'); io.observe(el); });
+})();</script>
+<script>/*navhide*/(function(){
+  var head=document.querySelector('.site-head'); if(!head) return;
+  var body=document.body, last=Math.max(0,window.scrollY||0), ticking=false, THRESH=400;
+  function recalc(){
+    var d=document.documentElement;
+    /* 10% of the scrollable distance, with a floor so short pages never twitch */
+    THRESH=Math.max(320,(d.scrollHeight-window.innerHeight)*0.10);
+  }
+  /* the nav must stay put while the user is inside something it contains */
+  function busy(){
+    var mp=document.getElementById('megaPanel');
+    if(mp){var cs=getComputedStyle(mp); if(cs.visibility!=='hidden'&&cs.opacity!=='0'&&!mp.hidden) return true;}
+    var ms=document.getElementById('msearchInput');
+    if(ms&&ms.offsetParent!==null) return true;
+    if(head.contains(document.activeElement)) return true;
+    return false;
+  }
+  function show(){body.classList.remove('nav-up')}
+  function update(){
+    ticking=false;
+    var y=Math.max(0,window.scrollY||0);
+    if(busy()){show();last=y;return}
+    if(y<THRESH) show();
+    else if(y>last+5) body.classList.add('nav-up');
+    else if(y<last-5) show();
+    last=y;
+  }
+  addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(update)}},{passive:true});
+  addEventListener('resize',recalc,{passive:true});
+  /* keyboard users must never tab into an off-screen nav */
+  head.addEventListener('focusin',show);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')show()});
+  recalc(); update();
+})();</script>
+<script>/*megahover*/(function(){
+  var p=document.getElementById('megaPanel');
+  var head=document.querySelector('.site-head');
+  var btns=[].slice.call(document.querySelectorAll('.dexp'));
+  if(!p||!head||!btns.length) return;
+  var T=null;
+  /* pointer-driven opening only where a real cursor exists — never on touch,
+     never on the mobile layout where the panel is a tap-to-open sheet */
+  function pointerNav(){
+    return window.matchMedia('(min-width:900px) and (hover:hover) and (pointer:fine)').matches;
+  }
+  function set(o){
+    p.hidden=!o;
+    document.querySelectorAll('.megabtn,.dexp').forEach(function(b){
+      b.setAttribute('aria-expanded', o?'true':'false');
+    });
+  }
+  function openNow(){ clearTimeout(T); if(pointerNav()) set(true); }
+  /* a short grace period so a diagonal sweep from the button to the panel
+     doesn't snap it shut mid-movement */
+  function closeSoon(){ clearTimeout(T); T=setTimeout(function(){ if(pointerNav()) set(false); }, 180); }
+  btns.forEach(function(b){
+    b.addEventListener('pointerenter', openNow);
+    b.addEventListener('pointerleave', closeSoon);
+  });
+  p.addEventListener('pointerenter', function(){ clearTimeout(T); });
+  p.addEventListener('pointerleave', closeSoon);
+  /* With hover in charge, the original click-to-toggle would slam the panel shut
+     the instant you clicked the button it had just opened. Swallow that click in
+     the CAPTURE phase at document level — a capture listener on an ancestor is the
+     only reliable way to preempt a bubble listener bound to the button itself. */
+  document.addEventListener('click', function(e){
+    if(!pointerNav()) return;
+    var t=e.target;
+    var btn=t && t.closest ? t.closest('.dexp') : null;
+    if(btn){ e.stopPropagation(); e.preventDefault(); set(true); }
+  }, true);
+  /* leaving the masthead entirely always closes it */
+  head.addEventListener('pointerleave', closeSoon);
+  head.addEventListener('pointerenter', function(){ clearTimeout(T); });
+})();</script>
+</body></html>

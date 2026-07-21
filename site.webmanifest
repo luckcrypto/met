@@ -1,0 +1,13 @@
+{
+  "name": "Met Road — Africa's Metro & Rail",
+  "short_name": "Met Road",
+  "description": "The Live Map of every metro, railway and rapid-transit line moving Africa's great cities.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#f8f3e9",
+  "theme_color": "#b3760b",
+  "icons": [
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
